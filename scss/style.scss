@@ -396,17 +396,19 @@ h1, h2, h3, h4, h5,
 
 //PHOTOGRAPHY
 .photography-entry{
-	height: 270px;
 	display: block;
 	z-index: 0;
 	position: relative;
 	.overlay{
 		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		z-index: -1;
+		// z-index: -1;
 		background: $black;
 		opacity: 0;
 		@include transition(.3s);
@@ -1556,5 +1558,57 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px;
+  }
+}
+
+/***************************************************
+// cropping images in carousel
+****************************************************/
+// Use Bootstrap breakpoints for consistency.
+$bootstrap-sm: 400px;
+$bootstrap-md: 768px;
+$bootstrap-lg: 992px;
+$bootstrap-xl: 1200px;
+
+// Crop thumbnail images.
+
+#gallery {
+  .col-12 {
+    cursor: -webkit-grab;
+    cursor: grab;
+
+		&:hover {
+			-webkit-filter: brightness(70%);
+	 		-moz-filter: brightness(70%);
+		 	-o-filter: brightness(70%);
+			-ms-filter: brightness(70%);
+			filter: brightness(70%);
+		}
+  }
+  img {
+    height: 350vw;
+    object-fit: cover;
+
+    @media (min-width: $bootstrap-sm) {
+      height: 60vw;
+    }
+
+    @media (min-width: $bootstrap-lg) {
+      height: 25vw;
+    }
+  }
+}
+
+.carousel-item {
+  img {
+    height: 35vw !important;
+    object-fit: cover;
+
+    @media (min-width: $bootstrap-sm) {
+      height: 80vw !important;
+    }
+		@media (min-width: $bootstrap-lg) {
+			height: 35vw !important;
+		}
   }
 }
