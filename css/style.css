@@ -8904,6 +8904,7 @@ h1, h2, h3, h4, h5,
   opacity: 0.8;
 }
 .hero-wrap .text {
+  padding-top: 3vw;
   z-index: 1;
   font-size: 18px;
   font-weight: 500;
